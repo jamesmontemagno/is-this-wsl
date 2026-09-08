@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fff8f0" />
+    <meta name="description" content="A tiny, friendly report about the environment this app is running in." />
+    <title>Is this WSL? — Environment report</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+
+    <main class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Is this WSL? home">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span>is this <strong>WSL?</strong></span>
+        </a>
+        <div class="live-indicator"><span class="live-dot"></span> live readout</div>
+      </header>
+
+      <section class="hero">
+        <div class="eyebrow"><span class="eyebrow-star">✦</span> a little environment report</div>
+        <h1>Your machine,<br /><em>on display.</em></h1>
+        <p class="hero-copy">A friendly snapshot of the operating system, distro, kernel, and browser powering this very page.</p>
+        <button class="refresh-button" id="refresh-button" type="button">
+          <span class="refresh-icon" aria-hidden="true">↻</span> Check again
+        </button>
+      </section>
+
+      <section class="wsl-card" id="wsl-card" aria-live="polite">
+        <div class="status-art" aria-hidden="true">
+          <span class="status-orbit orbit-one"></span>
+          <span class="status-orbit orbit-two"></span>
+          <span class="status-planet">?</span>
+        </div>
+        <div class="status-content">
+          <div class="card-label">virtualization check</div>
+          <h2 id="wsl-title">Checking your setup<span class="loading-dots">...</span></h2>
+          <p id="wsl-description">Taking a peek behind the curtain.</p>
+        </div>
+        <div class="wsl-badge" id="wsl-badge">...</div>
+      </section>
+
+      <section class="details-section">
+        <div class="section-heading">
+          <div>
+            <div class="card-label">under the hood</div>
+            <h2>The good stuff</h2>
+          </div>
+          <span class="sparkle" aria-hidden="true">✦</span>
+        </div>
+
+        <div class="detail-grid">
+          <article class="detail-card detail-card-wide">
+            <div class="detail-icon icon-sun" aria-hidden="true">☼</div>
+            <div class="detail-body">
+              <div class="card-label">operating system</div>
+              <h3 id="os-name">—</h3>
+              <p id="os-meta">Waiting for the host...</p>
+            </div>
+          </article>
+          <article class="detail-card">
+            <div class="detail-icon icon-flower" aria-hidden="true">✿</div>
+            <div class="detail-body">
+              <div class="card-label">distribution</div>
+              <h3 id="distro-name">—</h3>
+              <p id="distro-meta">Your Linux flavor</p>
+            </div>
+          </article>
+          <article class="detail-card">
+            <div class="detail-icon icon-spark" aria-hidden="true">✦</div>
+            <div class="detail-body">
+              <div class="card-label">kernel</div>
+              <h3 id="kernel-name">—</h3>
+              <p id="kernel-meta">The core beneath it all</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="browser-card">
+        <div class="browser-illustration" aria-hidden="true">
+          <span class="browser-window"><i></i><i></i><i></i><b></b></span>
+          <span class="browser-star">✦</span>
+        </div>
+        <div class="browser-content">
+          <div class="card-label">and your window into it</div>
+          <h2 id="browser-name">Finding your browser<span class="loading-dots">...</span></h2>
+          <p id="browser-meta">Reading the user-agent signature.</p>
+        </div>
+        <div class="client-pills">
+          <span class="client-pill" id="language-pill">language —</span>
+          <span class="client-pill" id="timezone-pill">timezone —</span>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>made with curiosity <span class="footer-heart">♥</span></span>
+        <span class="footer-divider"></span>
+        <span id="checked-at">just now</span>
+      </footer>
+    </main>
+
+    <div class="toast" id="toast" role="status">Report copied!</div>
+    <script src="/script.js"></script>
+  </body>
+</html>

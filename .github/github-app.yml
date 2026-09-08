@@ -1,0 +1,13 @@
+instructions: |
+  This is a dependency-free Python website. Use the standard-library server and keep
+  the browser UI accessible, responsive, and free of external runtime dependencies.
+
+scripts:
+  - name: Start website
+    command: python3 server.py
+
+  - name: Start website on port 3001
+    command: PORT=3001 python3 server.py
+
+server_ready_pattern: 'Server listening on (http://localhost:\d+)'
+auto_open_in_browser: true
